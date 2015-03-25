@@ -1,0 +1,24 @@
+<!--
+	Firefox does not focusin an input of type number when clicking on the spinner
+-->
+
+<html>
+<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</head>
+<body>
+
+<label for="inputNumber">Input number</label>
+<input type="number" name="inputNumber">
+
+</body>
+</html>
+
+<script type="text/javascript">
+	jQuery(document).on('keydown blur focusin click', 'input[type=number]', function(event) {
+		console.log(event.type);
+		if (event.type == "click") {
+			jQuery(this).focus();
+		}
+	});
+</script>
